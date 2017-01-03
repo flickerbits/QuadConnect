@@ -1,6 +1,7 @@
 var columns = [];
 var currentPlayer = 1;
 var currentPiece;
+var currentColumn = 0;
 var spacing = 60;
 
 function setup() {
@@ -38,6 +39,7 @@ function keyPressed() {
   } else if (keyCode === LEFT_ARROW) {
     currentPiece.move(-1);
   } else if (keyCode === DOWN_ARROW) {
+    currentPiece.changePlayer();
 
   }
 }
