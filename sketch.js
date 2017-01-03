@@ -39,7 +39,7 @@ function keyPressed() {
   } else if (keyCode === LEFT_ARROW) {
     currentPiece.move(-1);
   } else if (keyCode === DOWN_ARROW) {
-    currentPiece.changePlayer();
-
+    currentPiece.changeColor();
+    currentPlayer *= -1;
   }
 }
