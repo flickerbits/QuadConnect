@@ -45,9 +45,9 @@ function keyPressed() {
       if (columns[currentCol][i].color === 0 && flag === 1) {
         columns[currentCol][i].changeColor()
         flag = 0;
+        currentPiece.changeColor();
+        currentPlayer *= -1;
       }
     }
-    currentPiece.changeColor();
-    currentPlayer *= -1;
   }
 }
