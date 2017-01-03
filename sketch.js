@@ -1,7 +1,7 @@
 var columns = [];
-var currentPlayer = 1;
 var currentPiece;
-var currentColumn = 0;
+var currentPlayer = 1;
+var currentCol = 0;
 var spacing = 60;
 
 function setup() {
@@ -39,6 +39,14 @@ function keyPressed() {
   } else if (keyCode === LEFT_ARROW) {
     currentPiece.move(-1);
   } else if (keyCode === DOWN_ARROW) {
+
+    var flag = 1;
+    for (var i =  0; i < columns[currentCol].length; i++) {
+      if (columns[currentCol][i].color === 0 && flag === 1) {
+        columns[currentCol][i].changeColor()
+        flag = 0;
+      }
+    }
     currentPiece.changeColor();
     currentPlayer *= -1;
   }
