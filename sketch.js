@@ -1,11 +1,11 @@
 var board = [];
 
 function setup() {
-  createCanvas(450, 500);
-  var x = 45;
+  createCanvas(500, 500);
+  var x = 40;
   var y = 450;
 
-  for (var i = 1; i < 8; i++) {
+  for (var i = 1; i < 9; i++) {
     for (var j = 0; j < 6; j++) {
       var gamePiece = new GamePiece(x, y - (j * 60))
       ellipse(x, y - (j * 60), 50, 50)
