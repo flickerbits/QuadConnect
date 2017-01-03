@@ -12,4 +12,8 @@ function GamePiece(x, y, player) {
     if (player === 2) { fill(255, 255, 0) };
     ellipse(this.x, this.y, 50, 50);
   }
+
+  this.move = function(dir) {
+    this.x += dir * spacing;
+  }
 }
