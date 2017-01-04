@@ -28,8 +28,13 @@ function setup() {
 // required P5.js function
 function draw() {
   background(bg.r, bg.g, bg.b);
-  currentPiece.show();
 
+  // title text
+  fill(255);
+  textSize(45);
+  text("quadCONNECT", 160, 50);
+
+  currentPiece.show();
   for (var i = 0; i < columns.length; i++) {
     for (var j = 0; j < columns[i].length; j++) {
       columns[i][j].show();
@@ -50,11 +55,10 @@ function keyPressed() {
         columns[currentCol][i].changeColor()
         flag = 1;
         if (checkWinner(currentCol, i)) {
-          // currentPlayer is winner
-          // declare winner and ask to play another game
           console.log("The Winner is Player ", currentPlayer);
           // change background to green when there is a winner
           bg = {'r':0, 'g':180, 'b':0};
+          redraw();
         }
         currentPiece.changeColor();
         currentPlayer *= -1;
