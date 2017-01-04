@@ -20,7 +20,7 @@ function setup() {
     }
     x += spacing;
   }
-  console.log(columns);
+  // console.log(columns);
   currentPiece = new GamePiece(40, 95, currentPlayer);
 }
 
