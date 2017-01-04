@@ -4,6 +4,7 @@ var lastPiece;
 var currentPlayer = 1;
 var currentCol = 0;
 var spacing = 60;
+var bg = {'r':0, 'g':0, 'b':200};
 
 // required P5.js function
 function setup() {
@@ -26,7 +27,7 @@ function setup() {
 
 // required P5.js function
 function draw() {
-  background(0, 0, 200);
+  background(bg.r, bg.g, bg.b);
   currentPiece.show();
 
   for (var i = 0; i < columns.length; i++) {
@@ -51,7 +52,9 @@ function keyPressed() {
         if (checkWinner(currentCol, i)) {
           // currentPlayer is winner
           // declare winner and ask to play another game
-          console.log("The Winner is Player ", currentPlayer)
+          console.log("The Winner is Player ", currentPlayer);
+          // change background to green when there is a winner
+          bg = {'r':0, 'g':180, 'b':0};
         }
         currentPiece.changeColor();
         currentPlayer *= -1;
