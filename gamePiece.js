@@ -5,7 +5,7 @@ function GamePiece(x, y, color) {
 
   this.show  = function() {
     // empty space = GRAY
-    if (this.color === 0) { fill(200) };
+    if (this.color === 0) { fill(200, 200, 200, 200) };
     // player 1 = RED
     if (this.color === 1) { fill(255, 0, 0) };
     // player 2 = YELLOW
