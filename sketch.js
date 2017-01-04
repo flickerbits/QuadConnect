@@ -1,9 +1,11 @@
 var columns = [];
 var currentPiece;
+var lastPiece;
 var currentPlayer = 1;
 var currentCol = 0;
 var spacing = 60;
 
+// required P5.js function
 function setup() {
   createCanvas(500, 500);
   var x = 40;
@@ -22,6 +24,7 @@ function setup() {
   currentPiece = new GamePiece(40, 95, currentPlayer);
 }
 
+// required P5.js function
 function draw() {
   background(0, 0, 200);
   currentPiece.show();
@@ -33,21 +36,59 @@ function draw() {
   }
 }
 
+// native P5.js function
 function keyPressed() {
   if (keyCode === RIGHT_ARROW) {
     currentPiece.move(1);
   } else if (keyCode === LEFT_ARROW) {
     currentPiece.move(-1);
   } else if (keyCode === DOWN_ARROW) {
-
-    var flag = 1;
+    var flag = 0;
     for (var i =  0; i < columns[currentCol].length; i++) {
-      if (columns[currentCol][i].color === 0 && flag === 1) {
+      if (columns[currentCol][i].color === 0 && flag === 0) {
         columns[currentCol][i].changeColor()
-        flag = 0;
+        flag = 1;
+        if (checkWinner(currentCol, i)) {
+          // currentPlayer is winner
+          // declare winner and ask to play another game
+          console.log("The Winner is Player ", currentPlayer)
+        }
         currentPiece.changeColor();
         currentPlayer *= -1;
       }
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
