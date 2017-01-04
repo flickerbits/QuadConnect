@@ -1,6 +1,5 @@
-var columns = [];
+var columns;
 var currentPiece;
-var lastPiece;
 var currentPlayer = 1;
 var currentCol = 0;
 var spacing = 60;
@@ -45,7 +44,6 @@ function keyPressed() {
         columns[currentCol][i].changeColor()
         flag = 1;
         if (checkWinner(currentCol, i)) {
-          console.log("The Winner is Player ", currentPlayer);
           // change background to green when there is a winner
           bg = {'r':0, 'g':180, 'b':0};
         }
