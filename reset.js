@@ -4,7 +4,8 @@ function reset() {
   var x = 40;
   var y = 455;
 
-  for (var i = 0; i < 8; i++) {
+  // fill columns with 'empty' gray game pieces to initialize game
+  for (var i = 0; i < 7; i++) {
     columns[i]= [];
     for (var j = 0; j < 6; j++) {
       var gamePiece = new GamePiece(x, y - (j * spacing), 0);
