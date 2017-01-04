@@ -7,7 +7,7 @@ var bg = {'r':0, 'g':0, 'b':200};
 
 // required P5.js function
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(440, 500);
   reset();
   currentPiece = new GamePiece(40, 95, currentPlayer);
 }
@@ -19,7 +19,7 @@ function draw() {
   // title text
   fill(255);
   textSize(45);
-  text("quadCONNECT", 160, 50);
+  text("quadCONNECT", 100, 50);
 
   currentPiece.show();
   for (var i = 0; i < columns.length; i++) {
