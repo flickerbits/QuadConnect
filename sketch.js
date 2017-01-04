@@ -36,6 +36,8 @@ function keyPressed() {
     currentPiece.move(1);
   } else if (keyCode === LEFT_ARROW) {
     currentPiece.move(-1);
+  } else if (keyCode === UP_ARROW) {
+    reset();
   } else if (keyCode === DOWN_ARROW) {
     var flag = 0;
     for (var i =  0; i < columns[currentCol].length; i++) {
