@@ -15,3 +15,14 @@ Connect four of your game pieces in a row while preventing your opponent from do
 When a player successfully executes a **QuadConnect**, the background turns green!
 
 ![screenshot of Winning Board](/images/QC-Winner.png)
+
+QuadConnect was a one-day project to learn about the p5.js library.
+
+## Play QuadConnect
+
+* [Link to QuadConnect](https://flickerbits.github.io/QuadConnect/)
+
+## Licensing
+
+This repo includes code from other libraries:  
+* [p5.js](https://github.com/processing/p5.js) is licensed under LGPL 2.1
