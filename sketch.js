@@ -9,19 +9,7 @@ var bg = {'r':0, 'g':0, 'b':200};
 // required P5.js function
 function setup() {
   createCanvas(500, 500);
-  var x = 40;
-  var y = 455;
-
-  for (var i = 0; i < 8; i++) {
-    columns[i]= [];
-    for (var j = 0; j < 6; j++) {
-      var gamePiece = new GamePiece(x, y - (j * spacing), 0);
-      ellipse(x, y - (j * spacing), 50, 50);
-      columns[i].push(gamePiece);
-    }
-    x += spacing;
-  }
-  // console.log(columns);
+  reset();
   currentPiece = new GamePiece(40, 95, currentPlayer);
 }
 
@@ -58,7 +46,6 @@ function keyPressed() {
           console.log("The Winner is Player ", currentPlayer);
           // change background to green when there is a winner
           bg = {'r':0, 'g':180, 'b':0};
-          redraw();
         }
         currentPiece.changeColor();
         currentPlayer *= -1;
