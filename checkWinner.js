@@ -5,7 +5,7 @@ function checkWinner(col, row) {
   for (var i = 0; i < 6; i++) {
     if (columns[col][i].color === currentPlayer) {
       streak++;
-      if (streak === 4) return true
+      if (streak === 4) return true;
     } else streak = 0;
   }
 
@@ -33,7 +33,7 @@ function checkWinner(col, row) {
       for (var l = 0; l < 6; l++) {
         if (columns[l][base + l] && columns[l][base + l].color === currentPlayer) {
           streak++;
-          if (streak === 4) return true
+          if (streak === 4) return true;
         } else streak = 0;
       }
     }
