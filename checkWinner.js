@@ -1,7 +1,7 @@
 function checkWinner(col, row) {
-  var streak = 0;
-
+  
   // check current column for winner
+  var streak = 0;
   for (var i = 0; i < 6; i++) {
     if (columns[col][i].color === currentPlayer) {
       streak++;
@@ -10,6 +10,7 @@ function checkWinner(col, row) {
   }
 
   // check current row for winner
+  streak = 0;
   for (var j = 0; j < 7; j++) {
     if (columns[j][row].color === currentPlayer) {
       streak++;
@@ -18,6 +19,7 @@ function checkWinner(col, row) {
   }
 
   // check only diagonal forwardslash that intersects location
+  streak = 0;
   var base = col - row;
   if (base > 0 && base < 4) {
     for (var k = 0; k < 6; k++) {
@@ -40,6 +42,7 @@ function checkWinner(col, row) {
   }
 
   // check only diagonal backslash that intersects location
+  streak = 0;
   base = col + row;
   if (base > 2 && base < 9) {
     for (var m = 0; m < 6; m++) {
