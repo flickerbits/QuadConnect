@@ -9,7 +9,7 @@ var bg = {'r':0, 'g':0, 'b':200};
 function setup() {
   createCanvas(440, 500);
   reset();
-  currentPiece = new GamePiece(40, 95, currentPlayer);
+  currentPiece = new GamePiece(40, 95, currentPlayer, 1);
 }
 
 // required P5.js function

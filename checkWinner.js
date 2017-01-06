@@ -5,12 +5,19 @@ function checkWinner(col, row) {
   for (var i = 0; i < 6; i++) {
     if (columns[col][i].color === currentPlayer) {
       streak++;
+      columns[col][i].stroke = 4;
       if (streak === 4) return true;
-    } else streak = 0;
+    } else {
+      streak = 0; 
+    }
   }
+  // reset stroke weight back to 1
+  columns[col].forEach(function(e){
+    e.stroke = 1;
+  }); 
+  streak = 0;
 
   // check current row for winner
-  streak = 0;
   for (var j = 0; j < 7; j++) {
     if (columns[j][row].color === currentPlayer) {
       streak++;
