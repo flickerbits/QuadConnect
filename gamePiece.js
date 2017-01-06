@@ -32,14 +32,4 @@ function GamePiece(x, y, color, stroke) {
       this.color *= -1;
     }
   }
-
-  this.changeStroke = function(col, row) {
-    push();
-    strokeWeight(4);
-    columns[col][row];
-    console.log('STROKE!', col, row)
-    pop();
-  }
-
-
 }
