@@ -1,6 +1,6 @@
 function checkWinner(col, row) {
   
-  // check current column for winner
+  // check current COLUMN for winner
   var streak = 0;
   for (var i = 0; i < 6; i++) {
     if (columns[col][i].color === currentPlayer) {
@@ -15,17 +15,21 @@ function checkWinner(col, row) {
   columns[col].forEach(function(e){
     e.stroke = 1;
   }); 
-  streak = 0;
 
-  // check current row for winner
+  // check current ROW for winner
+  streak = 0;
   for (var j = 0; j < 7; j++) {
     if (columns[j][row].color === currentPlayer) {
       streak++;
+      columns[j][row].stroke = 4;
       if (streak === 4) return true;
     } else streak = 0;
   }
+  for (var j = 0; j < 7; j++) {
+    columns[j][row].stroke = 1;
+  };
 
-  // check only diagonal forwardslash that intersects location
+  // check only diagonal Forwardslash that intersects location
   streak = 0;
   var base = col - row;
   if (base > 0 && base < 4) {
@@ -48,16 +52,23 @@ function checkWinner(col, row) {
     }
   }
 
-  // check only diagonal backslash that intersects location
+  // check only diagonal Backslash that intersects location
   streak = 0;
   base = col + row;
   if (base > 2 && base < 9) {
     for (var m = 0; m < 6; m++) {
       if (columns[base - m] && columns[base - m][m].color === currentPlayer) {
         streak++;
+        columns[base - m][m].stroke = 4;
         if (streak === 4) return true;
       } else streak = 0;
     }
+    for (var m = 0; m < 6; m++) {
+      if (columns[base - m]) {
+        columns[base - m][m].stroke = 1;
+      }
+    }
   }
+
   return false;
 }
