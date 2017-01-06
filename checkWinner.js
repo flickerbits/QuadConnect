@@ -9,12 +9,11 @@ function checkWinner(col, row) {
       if (streak === 4) return true;
     } else {
       streak = 0; 
+      for (var r = 0; r <= i; r++) {
+        columns[col][r].stroke = 1;
+      }
     }
   }
-  // reset stroke weight back to 1
-  columns[col].forEach(function(e){
-    e.stroke = 1;
-  }); 
 
   // check current ROW for winner
   streak = 0;
@@ -23,10 +22,12 @@ function checkWinner(col, row) {
       streak++;
       columns[j][row].stroke = 4;
       if (streak === 4) return true;
-    } else streak = 0;
-  }
-  for (var j = 0; j < 7; j++) {
-    columns[j][row].stroke = 1;
+    } else {
+      streak = 0;
+      for (var r = 0; r <= j; r++) {
+        columns[r][row].stroke = 1;
+      }
+    }
   };
 
   // check only diagonal Forwardslash that intersects location
@@ -36,8 +37,14 @@ function checkWinner(col, row) {
     for (var k = 0; k < 6; k++) {
       if (columns[base + k] && columns[base + k][k].color === currentPlayer) {
         streak++;
+        columns[base + k][k].stroke = 4;
         if (streak === 4) return true;
       } else streak = 0;
+    }
+    for (var k = 0; k < 6; k++) {
+      if (columns[base + k]) {
+        columns[base + k][k].stroke = 1;
+      }
     }
   } else {
     streak = 0;
@@ -69,6 +76,5 @@ function checkWinner(col, row) {
       }
     }
   }
-
   return false;
 }
