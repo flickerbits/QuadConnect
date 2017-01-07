@@ -8,14 +8,10 @@ function checkWinner(col, row) {
     if (columns[col][i].color === currentPlayer) {
       winArray.push(columns[col][i]);
       if (winArray.length === 4) {
-        winArray.forEach(function(e) {
-          e.stroke = 4;
-        });
-        return true;
+        renderWinners(winArray);
+        return true; 
       }
-    } else {
-      winArray = [];
-    }
+    } else winArray = [];
   }
 
   // check current ROW for winner
@@ -95,6 +91,8 @@ function checkWinner(col, row) {
   return false;
 }
 
-function resetStroke(col, row){
-  columns[col][row].stroke = 1;
-}
+function renderWinners(arr) {
+  arr.forEach (function(e) {
+    e.stroke = 4;
+  });
+};
