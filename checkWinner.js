@@ -1,11 +1,12 @@
 function checkWinner(col, row) {
+  var winStroke = 5;
   
   // check current COLUMN for winner
   var streak = 0;
   for (var i = 0; i < 6; i++) {
     if (columns[col][i].color === currentPlayer) {
       streak++;
-      columns[col][i].stroke = 4;
+      columns[col][i].stroke = winStroke;
       if (streak === 4) return true;
     } else {
       streak = 0; 
@@ -20,7 +21,7 @@ function checkWinner(col, row) {
   for (var j = 0; j < 7; j++) {
     if (columns[j][row].color === currentPlayer) {
       streak++;
-      columns[j][row].stroke = 4;
+      columns[j][row].stroke = winStroke;
       if (streak === 4) return true;
     } else {
       streak = 0;
@@ -37,7 +38,7 @@ function checkWinner(col, row) {
     for (var k = 0; k < 6; k++) {
       if (columns[base + k] && columns[base + k][k].color === currentPlayer) {
         streak++;
-        columns[base + k][k].stroke = 4;
+        columns[base + k][k].stroke = winStroke;
         if (streak === 4) return true;
       } else streak = 0;
     }
@@ -66,7 +67,7 @@ function checkWinner(col, row) {
     for (var m = 0; m < 6; m++) {
       if (columns[base - m] && columns[base - m][m].color === currentPlayer) {
         streak++;
-        columns[base - m][m].stroke = 4;
+        columns[base - m][m].stroke = winStroke;
         if (streak === 4) return true;
       } else streak = 0;
     }
