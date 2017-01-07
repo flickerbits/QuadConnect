@@ -15,25 +15,20 @@ function checkWinner(col, row) {
   }
 
   // check current ROW for winner
-  var streak = 0;
+  winArray = [];
   for (var j = 0; j < 7; j++) {
     if (columns[j][row].color === currentPlayer) {
       streak++;
-      // columns[j][row].stroke = winStroke;
-      if (streak === 4) return true;
-    } else {
-      streak = 0;
-      for (var r = 0; r <= j; r++) {
-        columns[r][row].stroke = 1;
+      winArray.push(columns[j][row]);
+      if (winArray.length === 4) {
+        renderWinners(winArray);
+        return true;
       }
-    }
-  }
-  for (var r = 0; r < 7; r++) {
-    columns[r][row].stroke = 1;
+    } else winArray = [];
   }
 
   // check only diagonal Forwardslash that intersects location
-  streak = 0;
+  var streak = 0;
   var base = col - row;
   if (base >= 0 && base < 4) {
     for (var k = 0; k < 6; k++) {
