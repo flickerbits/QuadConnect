@@ -42,11 +42,11 @@ function checkWinner(col, row) {
         if (streak === 4) return true;
       } else streak = 0;
     }
-    for (var k = 0; k < 6; k++) {
-      if (columns[base + k]) {
-        columns[base + k][k].stroke = 1;
-      }
-    }
+    // for (var k = 0; k < 6; k++) {
+    //   if (columns[base + k]) {
+    //     columns[base + k][k].stroke = 1;
+    //   }
+    // }
   } else {
     streak = 0;
     base = row - col;
@@ -71,11 +71,11 @@ function checkWinner(col, row) {
         if (streak === 4) return true;
       } else streak = 0;
     }
-    for (var m = 0; m < 6; m++) {
-      if (columns[base - m]) {
-        columns[base - m][m].stroke = 1;
-      }
-    }
+    // for (var m = 0; m < 6; m++) {
+    //   if (columns[base - m]) {
+    //     columns[base - m][m].stroke = 1;
+    //   }
+    // }
   }
   return false;
 }
