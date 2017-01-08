@@ -3,13 +3,14 @@ var currentPiece;
 var currentPlayer = 1;
 var currentCol = 0;
 var spacing = 60;
+var winner = false;
 var bg = {'r':0, 'g':0, 'b':200};
 
 // required P5.js function
 function setup() {
   createCanvas(440, 500);
   reset();
-  currentPiece = new GamePiece(40, 95, currentPlayer);
+  currentPiece = new GamePiece(40, 95, currentPlayer, 1);
 }
 
 // required P5.js function
@@ -37,7 +38,7 @@ function keyPressed() {
     currentPiece.move(-1);
   } else if (keyCode === UP_ARROW) {
     reset();
-  } else if (keyCode === DOWN_ARROW) {
+  } else if (keyCode === DOWN_ARROW && !winner) {
     var flag = 0;
     for (var i =  0; i < columns[currentCol].length; i++) {
       if (columns[currentCol][i].color === 0 && flag === 0) {
@@ -46,6 +47,7 @@ function keyPressed() {
         if (checkWinner(currentCol, i)) {
           // change background to green when there is a winner
           bg = {'r':0, 'g':180, 'b':0};
+          winner = true;
         }
         currentPiece.changeColor();
         currentPlayer *= -1;
@@ -53,36 +55,3 @@ function keyPressed() {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
