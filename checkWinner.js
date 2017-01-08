@@ -1,7 +1,6 @@
 function checkWinner(col, row) {
   var winStroke = 5;
   var winArray = [];
-  console.log("CurrentPiece:", col, row)
   
   // check current COLUMN for winner
   for (var i = 0; i < 6; i++) {
@@ -40,7 +39,6 @@ function checkWinner(col, row) {
       } else winArray = [];
     }
   } else {
-    winArray = [];
     base = row - col;
     if (base > 0 && base < 3) {
       for (var l = 0; l < 6; l++) {
