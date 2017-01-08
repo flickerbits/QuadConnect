@@ -56,22 +56,19 @@ function checkWinner(col, row) {
   }
 
   // check only diagonal Backslash that intersects location
-  // streak = 0;
-  // base = col + row;
-  // if (base > 2 && base < 9) {
-  //   for (var m = 0; m < 6; m++) {
-  //     if (columns[base - m] && columns[base - m][m].color === currentPlayer) {
-  //       streak++;
-  //       // columns[base - m][m].stroke = winStroke;
-  //       if (streak === 4) return true;
-  //     } else streak = 0;
-  //   }
-  //   for (var m = 0; m < 6; m++) {
-  //     if (columns[base - m]) {
-  //       columns[base - m][m].stroke = 1;
-  //     }
-  //   }
-  // }
+  winArray = [];
+  base = col + row;
+  if (base > 2 && base < 9) {
+    for (var m = 0; m < 6; m++) {
+      if (columns[base - m] && columns[base - m][m].color === currentPlayer) {
+        winArray.push(columns[base - m][m]);
+        if (winArray.length === 4) {
+          renderWinners(winArray);
+          return true;
+        } 
+      } else winArray = [];
+    }
+  }
   return false;
 }
 
