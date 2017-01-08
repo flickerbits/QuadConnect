@@ -12,7 +12,7 @@ Connect four of your game pieces in a row while preventing your opponent from do
 * Down Arrow  - Drop game piece into current column.
 * Up Arrow    - Reset game.
 
-When a player successfully executes a **QuadConnect**, the background turns green!
+When a player successfully executes a **QuadConnect**, the background turns green and the winning pieces are highlighted!
 
 ![screenshot of Winning Board](/images/QC-Winner.png)
 
