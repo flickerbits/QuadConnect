@@ -31,7 +31,6 @@ function checkWinner(col, row) {
   var base = col - row;
   if (base >= 0 && base < 4) {
     for (var k = 0; k < 6; k++) {
-      console.log(base + k, k);
       if (columns[base + k] && columns[base + k][k].color === currentPlayer) {
         winArray.push(columns[base + k][k]);
         if (winArray.length === 4) {
@@ -41,22 +40,17 @@ function checkWinner(col, row) {
       } else winArray = [];
     }
   } else {
-    var streak = 0;
+    winArray = [];
     base = row - col;
     if (base > 0 && base < 3) {
       for (var l = 0; l < 6; l++) {
         if (columns[l][base + l] && columns[l][base + l].color === currentPlayer) {
-          streak++;
-          // columns[l][base + l].stroke = winStroke;
-          if (streak === 4) return true;
-        } else {
-          streak = 0;
-          for (var r = 0; r < l; r++) {
-            if (columns[base + r]) {
-              columns[base + r][r].stroke = 1;
-            }
-          }
-        }
+          winArray.push(columns[l][base + l]);
+          if (winArray.length === 4) {
+            renderWinners(winArray);
+            return true;
+          } 
+        } else winArray = [];
       }
     }
   }
