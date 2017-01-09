@@ -1,5 +1,4 @@
 function checkWinner(col, row) {
-  var winStroke = 5;
   var winArray = [];
   
   // check current COLUMN for winner
@@ -72,6 +71,6 @@ function checkWinner(col, row) {
 
 function renderWinners(arr) {
   arr.forEach (function(e) {
-    e.stroke = 4;
+    e.stroke = 5;
   });
 };
