@@ -20,7 +20,7 @@ QuadConnect was a one-day project to learn about the p5.js library.
 
 ## Play QuadConnect
 
-* [Link to QuadConnect](https://flickerbits.github.io/QuadConnect/)
+* [Link to QuadConnect](https://flickerbits.github.io/QuadConnect-p5.js/)
 
 ## Licensing
 
